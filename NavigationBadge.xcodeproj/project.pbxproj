@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FD7658061C7A204C009A3F00 /* Badge.png in Resources */ = {isa = PBXBuildFile; fileRef = FD7658051C7A204C009A3F00 /* Badge.png */; };
 		FDD41A3B1C7A1A7500E28B4B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FDD41A3A1C7A1A7500E28B4B /* main.m */; };
 		FDD41A3E1C7A1A7500E28B4B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FDD41A3D1C7A1A7500E28B4B /* AppDelegate.m */; };
 		FDD41A411C7A1A7500E28B4B /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDD41A401C7A1A7500E28B4B /* ViewController.m */; };
@@ -16,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		FD7658051C7A204C009A3F00 /* Badge.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Badge.png; sourceTree = "<group>"; };
 		FDD41A361C7A1A7500E28B4B /* NavigationBadge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NavigationBadge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FDD41A3A1C7A1A7500E28B4B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		FDD41A3C1C7A1A7500E28B4B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -63,6 +65,7 @@
 				FDD41A3F1C7A1A7500E28B4B /* ViewController.h */,
 				FDD41A401C7A1A7500E28B4B /* ViewController.m */,
 				FDD41A421C7A1A7500E28B4B /* Main.storyboard */,
+				FD7658051C7A204C009A3F00 /* Badge.png */,
 				FDD41A451C7A1A7500E28B4B /* Assets.xcassets */,
 				FDD41A471C7A1A7500E28B4B /* LaunchScreen.storyboard */,
 				FDD41A4A1C7A1A7500E28B4B /* Info.plist */,
@@ -139,6 +142,7 @@
 				FDD41A491C7A1A7500E28B4B /* LaunchScreen.storyboard in Resources */,
 				FDD41A461C7A1A7500E28B4B /* Assets.xcassets in Resources */,
 				FDD41A441C7A1A7500E28B4B /* Main.storyboard in Resources */,
+				FD7658061C7A204C009A3F00 /* Badge.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -262,6 +266,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = NavigationBadge/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ASTK.NavigationBadge;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -273,6 +278,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = NavigationBadge/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ASTK.NavigationBadge;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -298,6 +304,7 @@
 				FDD41A4F1C7A1A7500E28B4B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
