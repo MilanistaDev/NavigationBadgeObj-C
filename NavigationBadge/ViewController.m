@@ -58,8 +58,12 @@
     
     // make badge label view
     self.badgeLabel = [[UILabel alloc]initWithFrame:CGRectMake(29, 1, 18, 18)];
-    [self.badgeLabel.layer setMasksToBounds:YES];
-    //self.badgeLabel.backgroundColor = [UIColor colorWithRed:237/255.0 green:97/255.0 blue:3/255.0 alpha:1.0];
+  
+    // It can achieve using only UILabel.
+//    [self.badgeLabel.layer setMasksToBounds:YES];
+//    self.badgeLabel.layer.cornerRadius = 9.0f;
+//    self.badgeLabel.backgroundColor = [UIColor blueColor];
+
     self.badgeLabel.backgroundColor = [UIColor clearColor];
     self.badgeLabel.textColor = [UIColor whiteColor];
     self.badgeLabel.font = [UIFont boldSystemFontOfSize:10.0f];
