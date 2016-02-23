@@ -16,6 +16,8 @@
 
 @implementation ViewController
 
+const NSInteger kMAXNumber = 99;
+
 #pragma mark - LifeCycle
 
 - (void)viewDidLoad {
@@ -26,7 +28,7 @@
     
     // Set Button to NavigationBar
     [self addNavigationBarRightButtonItem];
-    self.countNum = 99;
+    self.countNum = kMAXNumber;
 }
 
 # pragma mark - Private Method
@@ -39,25 +41,25 @@
     
     /**
      * Generating sequence
-     * foundationView <- rightButton < - badgeImageView <- badgeLabel
+     * NavigationBar <- rightButton <- badgeImageView <- badgeLabel
      */
     
     // make right button
-    UIButton *rightButton = [UIButton buttonWithType:UIButtonTypeSystem];
-    rightButton.frame = CGRectMake(0.0, 0.0, 45.0, 44.0);
-    UIImage *rightButtonImage = [[UIImage imageNamed:@"NaviIcon"]
-                                 imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
-    [rightButton setImage:rightButtonImage forState:UIControlStateNormal];
-    [rightButton addTarget:self action:@selector(tapRightButton) forControlEvents:UIControlEventTouchUpInside];
+    UIButton *naviRightButton = [UIButton buttonWithType:UIButtonTypeSystem];
+    naviRightButton.frame = CGRectMake(0.0, 0.0, 44.0, 44.0);
+    UIImage *naviRightButtonImage = [[UIImage imageNamed:@"NaviIcon"]
+                                  imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    [naviRightButton setImage:naviRightButtonImage forState:UIControlStateNormal];
+    [naviRightButton addTarget:self action:@selector(tapRightButton)
+              forControlEvents:UIControlEventTouchUpInside];
     
     // make foundation view of ImageView
     self.badgeImageView = [[UIImageView alloc]initWithFrame:CGRectMake(28, 0, 20, 20)];
     self.badgeImageView.image = [UIImage imageNamed:@"Badge"];
     self.badgeImageView.hidden = NO;
-    [rightButton addSubview:self.badgeImageView];
     
     // make badge label view
-    self.badgeLabel = [[UILabel alloc]initWithFrame:CGRectMake(29, 1, 18, 18)];
+    self.badgeLabel = [[UILabel alloc]initWithFrame:CGRectMake(0.0, 0.0, 20.0, 20.0)];
   
     // It can achieve using only UILabel.
 //    [self.badgeLabel.layer setMasksToBounds:YES];
@@ -69,14 +71,14 @@
     self.badgeLabel.font = [UIFont boldSystemFontOfSize:10.0f];
     self.badgeLabel.textAlignment = NSTextAlignmentCenter;
     self.badgeLabel.hidden = NO;
-    self.badgeLabel.text = @"99";
-    [rightButton addSubview:self.badgeLabel];
-    
-    // make foundation view and addSubView(right button)
-    UIView *foundationView = [[UIView alloc] initWithFrame:(CGRect){.size.width = 45.0,.size.height = 44.0}];
-    [foundationView addSubview:rightButton];
-    UIBarButtonItem *reloadItem = [[UIBarButtonItem alloc] initWithCustomView:foundationView];
-    [self.navigationItem setRightBarButtonItem:reloadItem];
+    self.badgeLabel.text = [NSString stringWithFormat:@"%ld", kMAXNumber];
+    [self.badgeImageView addSubview:self.badgeLabel];
+    [naviRightButton addSubview:self.badgeImageView];
+
+    // Set Button to NavigationBarItem
+    UIBarButtonItem *navigationRightItem = [[UIBarButtonItem alloc]
+                                            initWithCustomView:naviRightButton];
+    [self.navigationItem setRightBarButtonItem:navigationRightItem];
 }
 
 # pragma mark - Action
@@ -102,11 +104,15 @@
  */
 - (IBAction)countDownAction:(id)sender {
     
+    if (self.badgeImageView.hidden) {
+        return;
+    }
+    
     if (self.countNum > 1) {
         self.countNum = self.countNum - 1;
         self.badgeLabel.text = [NSString stringWithFormat:@"%ld", self.countNum];
     } else {
-        self.countNum = 99;
+        self.countNum = kMAXNumber;
         self.badgeLabel.text = [NSString stringWithFormat:@"%ld", self.countNum];
         self.badgeImageView.hidden = YES;
         self.badgeLabel.hidden = YES;
